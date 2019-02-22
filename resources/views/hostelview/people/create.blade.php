@@ -22,9 +22,8 @@
                     console.log("that"),
 
                     { option: $(this).val() },
-                    console.log($(this).val()),
-                    function(data) {
-                        console.log(data);
+                    //console.log($(this).val()),
+                    function(data){
                         $('#capacity').empty();
                         $.each(data, function(id, capacity) {
                             console.log(id);
@@ -105,8 +104,24 @@
                 <td><input type="checkbox" name="furnished" value="" id="furnished" disabled>Yes
                     <input type="checkbox" name="furnished" value="" id="furnishedno" disabled>No
             </tr>
+            <tr></tr>
             <tr>
-                <td><input type="button" id="checkbtn" value="submit" onclick="availbility()"></td>
+                <td>User Information</td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" name="name" value="" id="name" placeholder="Enter full name"></td>
+            </tr>
+            <tr>
+                <td>CNIC: </td><td>
+                    <input type="text" name="cnic" value="" id="cnic" placeholder="00000-0000000-0"></td>
+            </tr>
+            <tr>
+                <td>Address: <td>
+                    <textarea type="text" name="address" placeholder="Enter Complete Address"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
             </tr>
         </table>
     </form>

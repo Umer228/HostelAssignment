@@ -25,21 +25,23 @@ Route::resource('createroom','RoomController');
 Route::resource('createpeople','PeopleController');
 
 
-Route::get('findroom', 'PeopleController@findRoom');
 /*--------------------------------------------------*/
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hostelview', function (){
     return view('hostelview.hostel');
 });
-
-
 /*==========================================================*/
-Route::get('api/dropdown', function(){
+/*Route::get('/api/dropdown', function(){
     $input = \App\Hostel::get('option');
     $rooms = \App\Hostel::find($input)->rooms;
     return $rooms->lists(['id','capacity']);
-});
+});*/
+
+Route::get('/api/dropdown', 'PeopleController@findRoom');
+
+
+Route::get('');
 /*----------------------------------------------------------*/
 
 Route::get('res', function () {
