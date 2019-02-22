@@ -1,13 +1,6 @@
-@extends('layouts.hostelApp')
+@extends('hostelview.master.master')
 
-@section('content')
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-
+@yield('content')
     <title>People Registration</title>
 
     <!-- Fonts -->
@@ -16,7 +9,32 @@
     {{--Java Script--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
     <script type="text/javascript">
+
+        $(document).ready(function($){
+            $('#hostel').change(function(){
+
+                console.log("that");
+
+                $.get("{{ url('api/dropdown')}}",
+
+                    console.log("that"),
+
+                    { option: $(this).val() },
+                    console.log($(this).val()),
+                    function(data) {
+                        console.log(data);
+                        $('#capacity').empty();
+                        $.each(data, function(id, capacity) {
+                            console.log(id);
+                            $('#model').append("<option value='" + id +"'>" + capacity + "</option>");
+                        });
+                    });
+            });
+        });
+        /*===========================================================================*/
+
         $.ajaxSetup({
 
             headers: {
@@ -27,97 +45,6 @@
 
         });
 
-        $(document).ready(function () {
-            $(document).on('change','.hostelname',function () {
-               console.log("it changes");
-               var hostel_id = $(this).val();
-               // console.log(hostel_id);
-
-               //var div = $(this).parent();
-               var op=" ";
-
-               $.ajax({
-                   type: 'get',
-                   url:'{!! \Illuminate\Support\Facades\URL::to('findroom') !!}',
-                   data:{'id':hostel_id},
-
-                   success:function (data) {
-                       console.log('success');
-                       var len = Object.keys(data).length;
-                       console.log("size: "+ len);
-                       console.log(data);
-
-                       op += '<option value="" selected disabled>Select Capacity</option>';
-                       for (let i=0;i<=Object.keys(data).length;i++){
-                           op += '<option value="'+data[i].id+'">'+i+" "+data[i].capacity+'</option>';
-                       }
-                       $(document).find('.roomcapacity').html(" ");
-                       $(document).find('.roomcapacity').append(op);
-
-                   },
-                   error:function () {
-
-                   }
-               });
-            });
-            $(document).on('change','.roomcapacity',function () {
-
-                console.log("Capacity Changes.");
-                var room_id = $(this).val();
-                console.log("Room Id: "+room_id);
-                var op=" ";
-                $.ajax({
-                    type: 'get',
-                    url:'{!! \Illuminate\Support\Facades\URL::to('findroom') !!}',
-                    data:{'id':room_id},
-                    success:function (data) {
-
-                        if ( data.error)  alert(data.error);
-                        alert(data);
-                        console.log("ac status: "+data[room_id].ac);
-
-                        var status = data[room_id].status;
-                        var fan = data[room_id].fan;
-                        var ac = data[room_id].ac;
-                        var furnished = data[room_id].furnished;
-
-                        console.log("fan : "+fan+status+ac+furnished);
-                        if (status==0){
-                            $(document).find('#status').html(" ");
-                            $(document).find('#status').prop('checked',true);
-                        }
-                        if (status==1){
-                            $(document).find('#statusno').html(" ");
-                            $(document).find('#statusno').prop('checked',false);
-                        }
-                        if (fan==0){
-                            $(document).find('#fan').html(" ");
-                            $(document).find('#fan').prop('checked',true);
-                        }
-                        if (fan==1){
-                            $(document).find('#fanno').html(" ");
-                            $(document).find('#fanno').prop('checked',false);
-                        }
-                        if (ac==0){
-                            $(document).find('#ac').html(" ");
-                            $(document).find('#ac').prop('checked',true);
-                        }
-                        if (ac==1){
-                            $(document).find('#acno').html(" ");
-                            $(document).find('#acno').prop('checked',false);
-                        }
-                        if (furnished==0){
-                            $(document).find('#furnished').html(" ");
-                            $(document).find('#furnished').prop('checked',true);
-                        }
-                        if (furnished==1){
-                            $(document).find('#furnishedno').html(" ");
-                            $(document).find('#furnishedno').prop('checked',false);
-                        }
-                    }
-                });
-            });
-        });
 
         function availbility() {
             var hostelId = document.getElementById('hostel').value;
@@ -135,10 +62,6 @@
         }
     </script>
 {{------------------------------------------------------------------------------------------}}
-    <!-- Styles -->
-
-</head>
-<body>
 <div class="flex-center position-ref full-height">
     <form action={{route('createpeople.store')}} method="post">
         @csrf
@@ -205,7 +128,5 @@
         </tr>
     @endforeach
 </table>
-</body>
-</html>
 
-@endsection
+

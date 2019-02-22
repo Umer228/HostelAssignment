@@ -1,6 +1,6 @@
-@extends('layouts.hostelApp')
+@extends('hostelview.master.master')
 
-@section('content')
+@yield('content')
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -140,4 +140,3 @@
 </body>
 </html>
 
-@endsection

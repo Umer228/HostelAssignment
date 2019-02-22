@@ -1,6 +1,6 @@
-@extends('layouts.hostelApp')
+@extends('hostelview.master.master')
 
 @section('content')
 
 
-    @endsection
+@endsection

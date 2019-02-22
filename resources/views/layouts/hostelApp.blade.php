@@ -9,17 +9,6 @@
 
     <title>Hostel</title>
 
-    <!-- Scripts -->
-{{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-          crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-            crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}" defer>
-
-    </script>--}}
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -123,11 +112,11 @@
                             {{ __('Hostel Registration') }}
                         </a>
                     </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('createroom') }}">
-                                {{ __('Adding Room') }}
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('createroom') }}">
+                            {{ __('Adding Room') }}
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('createpeople') }}">
                             {{ __('Booking Room') }}

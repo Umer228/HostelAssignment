@@ -34,14 +34,13 @@ Route::get('/hostelview', function (){
 });
 
 
-
+/*==========================================================*/
 Route::get('api/dropdown', function(){
     $input = \App\Hostel::get('option');
-    $maker = \App\Room::find($input);
-    $models = $maker->models();
-    return Response::eloquent($models->get(['id','name']));
+    $rooms = \App\Hostel::find($input)->rooms;
+    return $rooms->lists(['id','capacity']);
 });
-
+/*----------------------------------------------------------*/
 
 Route::get('res', function () {
     return response('Hello World', 200)
@@ -56,6 +55,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::view('super','super');
+
 Route::get('test', function (){
    return view('test');
+});
+
+Route::get('master', function (){
+    return view('hostelview.master.master');
+});
+
+Route::get('nav', function (){
+    return view('hostelview.master.navbar');
 });

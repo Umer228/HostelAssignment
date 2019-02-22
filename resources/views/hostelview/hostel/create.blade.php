@@ -1,21 +1,7 @@
-@extends('layouts.hostelApp')
+@extends('hostelview.master.master')
 
-@section('content')
+@yield('content')
 
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Hostel Registration</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-</head>
-<body>
 <div class="flex-center position-ref full-height">
     <form action={{route('createhostel.store')}} method="post">
         @csrf
@@ -38,6 +24,7 @@
         </table>
     </form>
 </div>
+
 {{---------------------------------------------------------------------------------}}
 {{--retriving data from database--}}
 <table class="table" border="">
@@ -50,7 +37,4 @@
         </tr>
     @endforeach
 </table>
-</body>
-</html>
 
-@endsection
