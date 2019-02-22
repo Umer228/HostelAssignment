@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,15 +15,26 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-/*Hostel*/
+/***************************************************************************************/
+                /*Hostel*/
 Route::resource('createhostel','HostelController');
-/*Room*/
+Route::resource('updatehostel','HostelController@update');
+Route::resource('deletehostel','HostelController');
+Route::resource('showhostel','HostelController');
+/*=====================================================================================*/
+                /*Room*/
 Route::resource('createroom','RoomController');
-/*People*/
+Route::get('updateroom','RoomController@update');
+Route::get('deleteroom','RoomController@destroy');
+Route::get('showroom','RoomController@show');
+/*=====================================================================================*/
+                /*People*/
 Route::resource('createpeople','PeopleController');
-
-
+Route::resource('updatepeople','PeopleController@update');
+Route::resource('deletepeople','PeopleController');
+Route::resource('showpeople','PeopleController');
+/*=====================================================================================*/
+/***************************************************************************************/
 /*--------------------------------------------------*/
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -62,11 +72,9 @@ Route::view('super','super');
 Route::get('test', function (){
    return view('test');
 });
-
 Route::get('master', function (){
     return view('hostelview.master.master');
 });
-
 Route::get('nav', function (){
     return view('hostelview.master.navbar');
 });

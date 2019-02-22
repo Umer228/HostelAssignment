@@ -64,6 +64,7 @@ class RoomController extends Controller
     public function show(Room $room)
     {
         //
+        return "show";
     }
 
     /**
@@ -87,6 +88,7 @@ class RoomController extends Controller
     public function update(Request $request, Room $room)
     {
         //
+        return "update";
     }
 
     /**
@@ -95,9 +97,10 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy()
     {
         //
+        return "destroy";
     }
 
 

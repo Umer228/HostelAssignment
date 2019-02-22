@@ -2,16 +2,20 @@
 
 @yield('content')
 
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+{{-------------------------------------------------------------------------------------------------}}
+
 <div class="flex-center position-ref full-height">
     <form action={{route('createhostel.store')}} method="post">
         @csrf
         <table>
             <tr><td>Hostel Name:</td>
-                <td><input type="text" name="name" value="alhamd"></td>
+                <td><input type="text" name="name" value=""></td>
             </tr>
             <tr>
                 <td>Phone No: </td>
-                <td><input type="text" name="phone" value="0300221211"></td>
+                <td><input type="text" name="phone" value=""></td>
             </tr>
             <tr>
                 <td>Address: </td>

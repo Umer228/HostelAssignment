@@ -22,7 +22,7 @@
                     console.log("that"),
 
                     { option: $(this).val() },
-                    //console.log($(this).val()),
+                    console.log($(this).val()),
                     function(data){
                         $('#capacity').empty();
                         $.each(data, function(id, capacity) {
@@ -121,7 +121,7 @@
                     <textarea type="text" name="address" placeholder="Enter Complete Address"></textarea></td>
             </tr>
             <tr>
-                <td><input type="submit"></td>
+                <td><input type="submit" value="Book Room"></td>
             </tr>
         </table>
     </form>
