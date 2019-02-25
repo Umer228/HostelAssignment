@@ -7,7 +7,7 @@
 {{-------------------------------------------------------------------------------------------------}}
 
 <div class="flex-center position-ref full-height">
-    <form action={{route('createhostel.store')}} method="post">
+    <form action={{route('storehostel.store')}} method="post">
         @csrf
         <table>
             <tr><td>Hostel Name:</td>

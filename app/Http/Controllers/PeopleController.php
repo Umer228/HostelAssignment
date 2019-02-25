@@ -107,10 +107,10 @@ class PeopleController extends Controller
     public function findRoom(Request $request){
         $data = Room::select('id','hostel_id','capacity','status','fan','ac','furnished')->where
         ('hostel_id',$request->id)->take(50);
-        return response()->json($data);
+        /*return response()->json($data);*/
 
 /*        return $data;*/
-        /*return Response::json($data);*/
+        return Response::json($data);
     }
 
 }

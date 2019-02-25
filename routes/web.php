@@ -17,30 +17,26 @@ Route::get('/', function () {
 Auth::routes();
 /***************************************************************************************/
                 /*Hostel*/
-Route::resource('createhostel','HostelController');
-Route::resource('updatehostel','HostelController@update');
-Route::resource('deletehostel','HostelController');
-Route::resource('showhostel','HostelController');
+Route::get('createhostel','HostelController@create');
+Route::resource('storehostel','HostelController');
+Route::get('updatehostel','HostelController@update');
+Route::get('deletehostel','HostelController@destroy');
+Route::get('showhostel','HostelController@show');
 /*=====================================================================================*/
                 /*Room*/
-Route::resource('createroom','RoomController');
+Route::get('createroom','RoomController@create');
 Route::get('updateroom','RoomController@update');
 Route::get('deleteroom','RoomController@destroy');
 Route::get('showroom','RoomController@show');
 /*=====================================================================================*/
                 /*People*/
-Route::resource('createpeople','PeopleController');
-Route::resource('updatepeople','PeopleController@update');
-Route::resource('deletepeople','PeopleController');
-Route::resource('showpeople','PeopleController');
-/*=====================================================================================*/
+Route::get('createpeople','PeopleController@create');
+Route::get('updatepeople','PeopleController@update');
+Route::get('deletepeople','PeopleController@destroy');
+Route::get('showpeople','PeopleController@show');
 /***************************************************************************************/
-/*--------------------------------------------------*/
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/hostelview', function (){
-    return view('hostelview.hostel');
-});
+
 /*==========================================================*/
 /*Route::get('/api/dropdown', function(){
     $input = \App\Hostel::get('option');
@@ -48,7 +44,7 @@ Route::get('/hostelview', function (){
     return $rooms->lists(['id','capacity']);
 });*/
 
-Route::get('/api/dropdown', 'PeopleController@findRoom');
+Route::get('/findroom', 'PeopleController@findRoom');
 
 
 Route::get('');

@@ -12,24 +12,95 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function($){
-            $('#hostel').change(function(){
+        $(document).ready(function () {
+            $(document).on('change','.hostelname',function () {
+                console.log("it changes");
+                var hostel_id = $(this).val();
+                console.log(hostel_id);
 
-                console.log("that");
+                //var div = $(this).parent();
+                var op=" ";
 
-                $.get("{{ url('api/dropdown')}}",
+                $.ajax({
+                    type: 'get',
+                    url:'{!! \Illuminate\Support\Facades\URL::to('findroom') !!}',
+                    data:{'id':hostel_id},
 
-                    console.log("that"),
+                    success:function (data) {
+                        console.log('success');
+                        var len = Object.keys(data).length;
+                        console.log("size: "+ len);
+                        console.log(data);
 
-                    { option: $(this).val() },
-                    console.log($(this).val()),
-                    function(data){
-                        $('#capacity').empty();
-                        $.each(data, function(id, capacity) {
-                            console.log(id);
-                            $('#model').append("<option value='" + id +"'>" + capacity + "</option>");
-                        });
-                    });
+                        op += '<option value="" selected disabled>Select Capacity</option>';
+                        for (let i=0;i<=Object.keys(data).length;i++){
+                            op += '<option value="'+data[i].id+'">'+i+" "+data[i].capacity+'</option>';
+                        }
+                        $(document).find('.roomcapacity').html(" ");
+                        $(document).find('.roomcapacity').append(op);
+
+                    },
+                    error:function () {
+
+                    }
+                });
+            });
+            $(document).on('change','.roomcapacity',function () {
+
+                console.log("Capacity Changes.");
+                var room_id = $(this).val();
+                console.log("Room Id: "+room_id);
+                var op=" ";
+                $.ajax({
+                    type: 'get',
+                    url:'{!! \Illuminate\Support\Facades\URL::to('findroom') !!}',
+                    data:{'id':room_id},
+                    success:function (data) {
+
+                        if ( data.error)  alert(data.error);
+                        alert(data);
+                        console.log("ac status: "+data[room_id].ac);
+
+                        var status = data[room_id].status;
+                        var fan = data[room_id].fan;
+                        var ac = data[room_id].ac;
+                        var furnished = data[room_id].furnished;
+
+                        console.log("fan : "+fan+status+ac+furnished);
+                        if (status==0){
+                            $(document).find('#status').html(" ");
+                            $(document).find('#status').prop('checked',true);
+                        }
+                        if (status==1){
+                            $(document).find('#statusno').html(" ");
+                            $(document).find('#statusno').prop('checked',false);
+                        }
+                        if (fan==0){
+                            $(document).find('#fan').html(" ");
+                            $(document).find('#fan').prop('checked',true);
+                        }
+                        if (fan==1){
+                            $(document).find('#fanno').html(" ");
+                            $(document).find('#fanno').prop('checked',false);
+                        }
+                        if (ac==0){
+                            $(document).find('#ac').html(" ");
+                            $(document).find('#ac').prop('checked',true);
+                        }
+                        if (ac==1){
+                            $(document).find('#acno').html(" ");
+                            $(document).find('#acno').prop('checked',false);
+                        }
+                        if (furnished==0){
+                            $(document).find('#furnished').html(" ");
+                            $(document).find('#furnished').prop('checked',true);
+                        }
+                        if (furnished==1){
+                            $(document).find('#furnishedno').html(" ");
+                            $(document).find('#furnishedno').prop('checked',false);
+                        }
+                    }
+                });
             });
         });
         /*===========================================================================*/

@@ -16,8 +16,7 @@ class HostelController extends Controller
     public function index()
     {
         //
-        $host = Hostel::all();
-        return view('hostelview.hostel.create')->with('hosteldata', $host);
+
     }
 
     /**
@@ -27,9 +26,9 @@ class HostelController extends Controller
      */
     public function create()
     {
-        //
+        $host = Hostel::all();
+        return view('hostelview.hostel.create')->with('hosteldata', $host);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +38,7 @@ class HostelController extends Controller
     public function store(Request $request)
     {
         //
-//        dd($request->all());
+//      dd($request->all());
         $name = $request->name;
         $ph = $request->phone;
         $addr = $request->address;
@@ -62,6 +61,15 @@ class HostelController extends Controller
     public function show(Hostel $hostel)
     {
         //
+        $host = Hostel::all();
+        return view('hostelview.hostel.show')->with('hosteldata', $host);
+    }
+
+    public function showSpecific(Hostel $hostel, $id)
+    {
+        //
+        $host = Hostel::find($id);
+        return view('hostelview.hostel.show')->with('hosteldata', $host);
     }
 
     /**
