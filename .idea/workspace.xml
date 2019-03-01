@@ -82,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/StorePersonRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="77">
-              <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+              <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="e#205#306#0#PHP" />
                 <element signature="e#2274#2420#0#PHP" />
@@ -514,7 +514,7 @@
       <workItem from="1551182731081" duration="2131000" />
       <workItem from="1551194726379" duration="7450000" />
       <workItem from="1551285788525" duration="966000" />
-      <workItem from="1551339295742" duration="42918000" />
+      <workItem from="1551339295742" duration="43530000" />
     </task>
     <task id="LOCAL-00001" summary="hello world">
       <created>1549630846998</created>
@@ -562,7 +562,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231833000" />
+    <option name="totallyTimeSpent" value="232445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -947,7 +947,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
-          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="e#205#306#0#PHP" />
             <element signature="e#2274#2420#0#PHP" />
@@ -960,7 +960,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/StorePersonRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
         </state>
       </provider>
     </entry>
