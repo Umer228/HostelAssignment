@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hostel;
+use App\Http\Requests\StorePeopleRequest;
 use App\Http\Requests\StorePersonRequest;
 use App\People;
 use App\Room;
@@ -38,7 +39,7 @@ class PeopleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePersonRequest $request)
+    public function store(StorePeopleRequest $request)
     {
         //dd($request->all());
         $hostel_id = $request->hostel_id;
@@ -54,6 +55,7 @@ class PeopleController extends Controller
             'cnic'=>$cnic,
             'address'=>$address
         ]);
+        return redirect()->back();
     }
 
     /**
@@ -114,12 +116,17 @@ class PeopleController extends Controller
 
 
     public function findRoom(Request $request){
-        $data = Room::select('id','hostel_id','capacity','status','fan','ac','furnished')->where
-        ('hostel_id',$request->id)->take(50);
-        /*return response()->json($data);*/
+        /*$id = $request->id;
+        $data = Room::all()->where('hostel_id',$id);
+        return $data;*/
 
-/*        return $data;*/
-        return Response::json($data);
+        $id = $request->get('id');
+        $dependent = $request->get('dependent');
+        $value = $request->get('value');
+
+        $data = Room::all()->where('hostel_id',$id);
+
+        $output = '<option value="">'+i+" "+data[i].capacity+'</option>';
     }
 
 }

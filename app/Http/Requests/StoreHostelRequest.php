@@ -29,4 +29,12 @@ class StoreHostelRequest extends FormRequest
             'address' => 'required',
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Enter Your Full Name',
+            'phone.required' => 'Enter Your Phone Number',
+            'address.required' => 'Enter Your Complete Address',
+        ];
+    }
 }
